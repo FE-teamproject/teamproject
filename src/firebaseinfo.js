@@ -1,3 +1,4 @@
+// firebase
 import firebase from 'firebase/app';
 // Add the Firebase products that you want to use
 import 'firebase/analytics';
@@ -12,6 +13,15 @@ const firebaseConfig = {
   appId: '1:471359378705:web:23bc1f7466ce8663dd68b0',
   measurementId: 'G-03PPZSNMZK',
 };
+
+export const fire = () => {
+  if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+  }
+database = firebase.database()
+}
+
+export const firebaseDB=firebaseApp.database();
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
