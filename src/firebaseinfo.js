@@ -16,15 +16,18 @@ const firebaseConfig = {
 
 export const fire = () => {
   if (!firebase.apps.length) {
-      firebase.initializeApp(config);
+    firebase.initializeApp(config);
   }
-database = firebase.database()
-}
+  database = firebase.database();
+};
 
-export const firebaseDB=firebaseApp.database();
+//export const firebaseDB = firebaseApp.database();
+//에러 떠서 주석처리
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+export const firebaseInstance = firebase;
 
 export const authService = firebase.auth();
