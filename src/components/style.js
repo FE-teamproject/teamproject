@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 export const Authdiv = styled.div`
   display: flex;
   flex-direction: column;
-  //align-items: center; //수정
   margin-top: 6rem;
 
   & div {
