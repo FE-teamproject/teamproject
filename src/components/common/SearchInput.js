@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import styled from 'styled-components';
-import { FaSistrix } from 'react-icons/fa';
+import { Input, Form } from 'antd';
+import 'antd/dist/antd.css';
 
 const SearchInput = () => {
   const [search, setSearch] = useState('');
@@ -8,22 +8,22 @@ const SearchInput = () => {
     setSearch(event.target.value);
   };
   const onSubmit = event => {
-    event.preventDefault();
     console.log(search);
   };
   return (
-    <form onSubmit={onSubmit} className="input-group mb-3">
-      <input
-        className="form-control"
+    <Form onFinish={onSubmit}>
+      <Input.Search
         type="text"
-        placeholder="검색어를 입력해주세요"
         value={search}
+        placeholder="검색어를 입력해주세요"
+        allowClear
         onChange={onChange}
+        onSearch={onSubmit}
       />
-      <button className="btn" type="submit">
+      {/* <button type="submit">
         <FaSistrix size="20" />
-      </button>
-    </form>
+      </button> */}
+    </Form>
   );
 };
 export default SearchInput;
