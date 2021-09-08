@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Button } from 'react-bootstrap';
+import { FcGoogle } from 'react-icons/fc';
+import { Authdiv } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   signupwithEmail,
@@ -36,32 +37,37 @@ const Auth = () => {
   };
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          className="form-control"
-          name="email"
-          type="email"
-          placeholder="EMAIL"
-          required
-          value={email}
-          onChange={onChange}
-        />
-        <input
-          className="form-control"
-          name="password"
-          type="password"
-          placeholder="PASSWORD"
-          required
-          value={password}
-          onChange={onChange}
-        />
-        <div>{message}</div>
-        <Button type="submit">{signup ? '회원가입' : '로그인'}</Button>
-      </form>
-      <div>
-        <span onClick={toggleLogin}>{signup ? '로그인' : '회원가입'}</span>
-      </div>
-      <Button onClick={onSocialBtn}>구글 로그인</Button>
+      <Authdiv>
+        <form onSubmit={onSubmit}>
+          <input
+            name="email"
+            type="email"
+            placeholder="EMAIL"
+            required
+            value={email}
+            onChange={onChange}
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="PASSWORD"
+            required
+            value={password}
+            onChange={onChange}
+          />
+          <div>{message}</div>
+          <button type="submit" className="btn">
+            {signup ? 'JOIN' : 'LOGIN'}
+          </button>
+        </form>
+        <div className="toggle">
+          <span onClick={toggleLogin}>{signup ? '로그인' : '회원가입'}</span>
+        </div>
+        <button onClick={onSocialBtn} className="googlebtn">
+          <FcGoogle size="20" className="icon" />
+          <span>구글로 로그인하기</span>
+        </button>
+      </Authdiv>
     </>
   );
 };
