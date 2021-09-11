@@ -4,9 +4,12 @@ import { Button } from 'react-bootstrap';
 import { fire } from 'firebase';
 import Auth from 'components/Auth';
 import SearchInput from 'components/common/SearchInput';
+import MainList from 'MainList';
+import Gnb from 'Gnb';
 import { authService } from 'firebaseinfo';
 import { useDispatch } from 'react-redux';
 import { authStateChange } from 'reducers/user';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,12 +19,25 @@ function App() {
       dispatch(authStateChange(user));
     });
   });
+
   return (
-    <div className="container-sm">
-      <h2>Daily Auction</h2>
-      <SearchInput />
-      <Auth />
-      <Button>Boot strap</Button>
+    <div>
+      <BrowserRouter>
+        <Route path="/login" component={Auth} />
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <>
+              <Gnb />
+              <MainList />
+            </>
+          )}
+        />
+      </BrowserRouter>
+      {/* <SearchInput /> */}
+      {/* <Auth /> */}
+      {/* <Button>Boot strap</Button> */}
     </div>
   );
 }
