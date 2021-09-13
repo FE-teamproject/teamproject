@@ -1,0 +1,15 @@
+.bold {
+    font-weight: bold;
+}
+
+.mgbt0 {
+    margin-bottom: 0;
+}
+
+.justCont_sb {
+ justify-content: 'space-between';
+}
+
+.color_black {
+    color: #000;
+}
